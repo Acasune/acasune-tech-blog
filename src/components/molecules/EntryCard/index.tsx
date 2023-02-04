@@ -2,14 +2,14 @@
 import Link from 'next/link'
 import { AiFillTags } from 'react-icons/ai'
 
-interface PostHeaderProps {
+interface EntryCardProps {
   date: string
   link: string
   tag: string
   title: string
 }
 
-export const PostHeader = ({ date, link, tag, title }: PostHeaderProps) => {
+export const EntryCard = ({ date, link, tag, title }: EntryCardProps) => {
   return (
     <Card>
       <CardBody>
