@@ -1,17 +1,42 @@
 import { ChakraProvider } from '@chakra-ui/react'
 
 import { theme } from './Theme'
-import { EntryCard } from 'components/molecules/EntryCard'
+import EntryList, { EntryMeta } from '@/components/organisms/EntryList'
 
 export default function App() {
+  const data: EntryMeta[] = [
+    {
+      entry_id: 1,
+      date: '2022-02-04',
+      link: 'https://acasu.net',
+      tags: ['React', 'Rust'],
+      title: 'ブログ作り直してみた。',
+    },
+    {
+      entry_id: 2,
+      date: '2022-02-04',
+      link: 'https://acasu.net',
+      tags: ['React', 'Rust'],
+      title: 'ブログ作り直してみた。',
+    },
+    {
+      entry_id: 3,
+      date: '2022-02-04',
+      link: 'https://acasu.net',
+      tags: ['React', 'Rust'],
+      title: 'ブログ作り直してみた。',
+    },
+    {
+      entry_id: 4,
+      date: '2022-02-04',
+      link: 'https://acasu.net',
+      tags: ['React', 'Rust'],
+      title: 'ブログ作り直してみた。',
+    },
+  ]
   return (
     <ChakraProvider theme={theme}>
-      <EntryCard
-        date={'2022-02-04'}
-        link={'http://acasu.net/'}
-        tag={'React'}
-        title={'Reactを学ぶ'}
-      />
+      <EntryList entries={data} />
     </ChakraProvider>
   )
 }

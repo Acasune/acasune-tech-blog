@@ -1,22 +1,30 @@
-﻿import { Card, CardBody, Icon, Tag } from '@chakra-ui/react'
+﻿import { Card, CardBody, HStack, Icon, Tag, VStack } from '@chakra-ui/react'
 import Link from 'next/link'
 import { AiFillTags } from 'react-icons/ai'
 
-interface EntryCardProps {
+export interface EntryCardProps {
   date: string
   link: string
-  tag: string
+  tags: string[]
   title: string
 }
 
-export const EntryCard = ({ date, link, tag, title }: EntryCardProps) => {
+export const EntryCard = ({ date, link, tags, title }: EntryCardProps) => {
   return (
     <Card>
       <CardBody>
-        <Tag>{date}</Tag>
-        <Link href={link}>{title}</Link>
-        <Icon as={AiFillTags} />
-        <Tag>{tag}</Tag>
+        <VStack>
+          <HStack>
+            <Tag>{date}</Tag>
+            <Link href={link}>{title}</Link>
+          </HStack>
+          <HStack>
+            <Icon as={AiFillTags} />
+            {tags.map((t, i) => (
+              <Tag key={i}>{t}</Tag>
+            ))}
+          </HStack>
+        </VStack>
       </CardBody>
     </Card>
   )
