@@ -1,5 +1,4 @@
-﻿import { Heading } from '@chakra-ui/react'
-import { Box } from '@chakra-ui/react'
+﻿import { Heading, Box } from '@chakra-ui/react'
 
 const Header = () => {
   return (

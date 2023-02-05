@@ -15,7 +15,7 @@ export const EntryCard = ({ date, tags, title }: EntryCardProps) => {
         <VStack>
           <HStack>
             <Tag>{date}</Tag>
-            {/* <Link href={link}>{title}</Link> */}
+            <Link href="test">{title}</Link>
           </HStack>
           <HStack>
             <Icon as={AiFillTags} />

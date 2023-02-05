@@ -3,4 +3,5 @@
   title: string
   tags: string[]
   date: string
+  content: string
 }
