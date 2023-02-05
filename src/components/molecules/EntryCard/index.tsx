@@ -6,16 +6,19 @@ export interface EntryCardProps {
   date: string
   tags: string[]
   title: string
+  slug: string
 }
 
-export const EntryCard = ({ date, tags, title }: EntryCardProps) => {
+export const EntryCard = ({ date, tags, title, slug }: EntryCardProps) => {
   return (
     <Card>
       <CardBody>
         <VStack>
           <HStack>
             <Tag>{date}</Tag>
-            <Link href="test">{title}</Link>
+            <Link as={`/${slug}`} href="/[slug]">
+              {title}
+            </Link>
           </HStack>
           <HStack>
             <Icon as={AiFillTags} />

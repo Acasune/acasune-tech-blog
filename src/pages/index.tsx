@@ -10,7 +10,6 @@ type Props = {
 
 const TopPage: NextPage<Props> = (allEntries) => {
   const { entries } = allEntries
-  console.log(entries[0])
   return (
     <Layout>
       <EntryList entries={entries} />

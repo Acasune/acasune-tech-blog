@@ -1,11 +1,9 @@
-﻿import { remark } from 'remark'
-import ErrorPage from 'next/error'
-import html from 'remark-html'
+﻿import ErrorPage from 'next/error'
+import { useRouter } from 'next/router'
+import markdownToHtml from '../lib/markdownToHtml'
 import Layout from '@/src/components/templates/Layout'
 import { getAllEntries, getEntryBySlug } from '@/src/lib/api'
 import { Entry } from '@/src/types'
-import { useRouter } from 'next/router'
-import markdownToHtml from '../lib/markdownToHtml'
 
 type EntryPageProps = {
   entry: Entry

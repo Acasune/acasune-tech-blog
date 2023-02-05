@@ -15,6 +15,7 @@ const EntryList = ({ entries }: EntryListProps) => {
           date={ent.date}
           tags={ent.tags}
           title={ent.title}
+          slug={ent.slug}
         ></EntryCard>
       ))}
     </VStack>
