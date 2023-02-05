@@ -1,16 +1,9 @@
 ﻿import { VStack } from '@chakra-ui/react'
 import { EntryCard } from '@/src/components/molecules/EntryCard'
-
-export interface EntryMeta {
-  entry_id: number
-  date: string
-  link: string
-  tags: string[]
-  title: string
-}
+import { Entry } from '@/src/types'
 
 interface EntryListProps {
-  entries: EntryMeta[]
+  entries: Entry[]
 }
 
 const EntryList = ({ entries }: EntryListProps) => {
@@ -18,9 +11,8 @@ const EntryList = ({ entries }: EntryListProps) => {
     <VStack>
       {entries.map((ent) => (
         <EntryCard
-          key={ent.entry_id}
+          key={ent.slug}
           date={ent.date}
-          link={ent.link}
           tags={ent.tags}
           title={ent.title}
         ></EntryCard>

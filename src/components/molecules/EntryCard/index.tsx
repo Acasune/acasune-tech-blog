@@ -4,19 +4,18 @@ import { AiFillTags } from 'react-icons/ai'
 
 export interface EntryCardProps {
   date: string
-  link: string
   tags: string[]
   title: string
 }
 
-export const EntryCard = ({ date, link, tags, title }: EntryCardProps) => {
+export const EntryCard = ({ date, tags, title }: EntryCardProps) => {
   return (
     <Card>
       <CardBody>
         <VStack>
           <HStack>
             <Tag>{date}</Tag>
-            <Link href={link}>{title}</Link>
+            {/* <Link href={link}>{title}</Link> */}
           </HStack>
           <HStack>
             <Icon as={AiFillTags} />

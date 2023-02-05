@@ -1,14 +1,28 @@
-import { ChakraProvider } from '@chakra-ui/react'
+﻿import { GetStaticProps, NextPage } from 'next'
+import EntryList from '../components/organisms/EntryList'
+import { Entry } from '../types'
+import Layout from '@/src/components/templates/Layout'
+import { getAllEntries } from '@/src/lib/api'
 
-import { theme } from './Theme'
-import TopPage from '@/src/pages/top'
+type Props = {
+  entries: Entry[]
+}
 
-const App = () => {
+const TopPage: NextPage<Props> = (allEntries) => {
+  const { entries } = allEntries
   return (
-    <ChakraProvider theme={theme}>
-      <TopPage />
-    </ChakraProvider>
+    <Layout>
+      <EntryList entries={entries} />
+    </Layout>
   )
 }
 
-export default App
+export const getStaticProps: GetStaticProps<Props> = async () => {
+  const allEntries = getAllEntries(['slug', 'title', 'date', 'tags'])
+
+  return {
+    props: { entries: allEntries },
+  }
+}
+
+export default TopPage
