@@ -1,7 +1,9 @@
 import { ChakraProvider } from '@chakra-ui/react'
 
 import { theme } from './Theme'
-import EntryList, { EntryMeta } from '@/components/organisms/EntryList'
+import EntryList, { EntryMeta } from '@/src/components/organisms/EntryList'
+import Footer from '@/src/components/organisms/Footer'
+import Header from '@/src/components/organisms/Header'
 
 export default function App() {
   const data: EntryMeta[] = [
@@ -36,7 +38,9 @@ export default function App() {
   ]
   return (
     <ChakraProvider theme={theme}>
+      <Header />
       <EntryList entries={data} />
+      <Footer />
     </ChakraProvider>
   )
 }

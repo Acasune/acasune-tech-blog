@@ -1,5 +1,5 @@
 ﻿import { VStack } from '@chakra-ui/react'
-import { EntryCard } from '@/components/molecules/EntryCard'
+import { EntryCard } from '@/src/components/molecules/EntryCard'
 
 export interface EntryMeta {
   entry_id: number
