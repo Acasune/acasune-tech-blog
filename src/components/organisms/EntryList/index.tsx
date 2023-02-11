@@ -1,4 +1,4 @@
-﻿import { VStack } from '@chakra-ui/react'
+﻿import { Flex, Spacer, VStack } from '@chakra-ui/react'
 import { EntryCard } from '@/src/components/molecules/EntryCard'
 import { Entry } from '@/src/types'
 
@@ -16,7 +16,7 @@ const EntryList = ({ entries }: EntryListProps) => {
           tags={ent.tags}
           title={ent.title}
           slug={ent.slug}
-        ></EntryCard>
+        />
       ))}
     </VStack>
   )
