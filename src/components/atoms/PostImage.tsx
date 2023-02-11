@@ -7,6 +7,7 @@ const PostImage: PostImageFunc =
   (slug: string) =>
   // eslint-disable-next-line react/display-name
   ({ src, alt }: JSX.IntrinsicElements['img']) => {
+    console.log(src)
     // eslint-disable-next-line @typescript-eslint/no-var-requires
     const image = require('../../../data/posts/' + slug + '/' + src).default
     return (
