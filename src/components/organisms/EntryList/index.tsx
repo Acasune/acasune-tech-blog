@@ -1,4 +1,4 @@
-﻿import { Flex, Spacer, VStack } from '@chakra-ui/react'
+﻿import { VStack } from '@chakra-ui/react'
 import { EntryCard } from '@/src/components/molecules/EntryCard'
 import { Entry } from '@/src/types'
 
