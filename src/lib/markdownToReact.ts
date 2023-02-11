@@ -1,4 +1,5 @@
-﻿import { createElement, Fragment } from 'react'
+﻿import rehypePrism from '@mapbox/rehype-prism'
+import { createElement, Fragment } from 'react'
 import rehypeReact from 'rehype-react'
 import remarkParse from 'remark-parse'
 import remarkRehype from 'remark-rehype'
@@ -10,6 +11,7 @@ const markdownToReact = async (markdown: string, slug: string) => {
     await unified()
       .use(remarkParse)
       .use(remarkRehype)
+      .use(rehypePrism)
       .use(rehypeReact, {
         createElement,
         Fragment,
