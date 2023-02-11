@@ -1,6 +1,6 @@
 ﻿import { AppProps } from 'next/app'
-import '@/styles/style.css'
-import '@/styles/prism-monokai.css'
+import '@/src/styles/style.css'
+import '@/src/styles/prism-monokai.css'
 
 const App = ({ Component, pageProps }: AppProps) => {
   return <Component {...pageProps} />
