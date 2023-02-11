@@ -1,9 +1,8 @@
 ﻿import ErrorPage from 'next/error'
 import { useRouter } from 'next/router'
-import { useState, Fragment, useEffect } from 'react'
+import EntryContainer from '@/src/components/organisms/EntryContainer'
 import Layout from '@/src/components/templates/Layout'
 import { getAllEntries, getEntryBySlug } from '@/src/lib/api'
-import markdownToReact from '@/src/lib/markdownToReact'
 import { Entry } from '@/src/types'
 
 type EntryPageProps = {
@@ -12,25 +11,13 @@ type EntryPageProps = {
 
 const EntryPage = ({ entry }: EntryPageProps) => {
   const router = useRouter()
-  const [component, setComponent] = useState(<Fragment />)
-  useEffect(() => {
-    // eslint-disable-next-line @typescript-eslint/no-extra-semi
-    ;(async () => {
-      const contentComponent = await markdownToReact(entry.content, entry.slug)
-      setComponent(contentComponent)
-    })()
-    // eslint-disable-next-line @typescript-eslint/no-empty-function
-    return () => {}
-  }, [entry])
   if (!router.isFallback && !entry?.slug) {
     return <ErrorPage statusCode={404} />
   }
 
   return (
     <Layout>
-      {/* <div dangerouslySetInnerHTML={{ __html: entry.content }} />
-       */}
-      <div>{component}</div>
+      <EntryContainer entry={entry} />
     </Layout>
   )
 }
@@ -64,7 +51,6 @@ export const getStaticProps = async ({ params }: SSGProps) => {
     'tags',
     'content',
   ])
-  // const content = await markdownToHtml(entry.content)
 
   return {
     props: {
