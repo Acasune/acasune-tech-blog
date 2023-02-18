@@ -1,4 +1,5 @@
 ﻿import { Avatar, HStack, VStack, Box, Text, Icon } from '@chakra-ui/react'
+import NextLink from 'next/link'
 import { FaTwitterSquare, FaGithubSquare } from 'react-icons/fa'
 import { profile, policy } from '@/data/siteMetaData'
 
@@ -7,16 +8,25 @@ const Footer = () => {
     <Box>
       <VStack>
         <HStack>
-          <Avatar name={profile.name} src={profile.image} />
+          <Box boxSize={80}>
+            <Avatar name="acasune.png" src="/assets/acasune.png" />
+          </Box>
           <VStack>
-            <HStack>
-              <Text>{profile.name}</Text>
-              <Text>{profile.description}</Text>
-            </HStack>
-            <HStack>
-              <Icon as={FaTwitterSquare} />
-              <Icon as={FaGithubSquare} />
-            </HStack>
+            <Box>
+              <Box>Name: {profile.name}</Box>
+              <Box>{profile.description}</Box>
+            </Box>
+            <Box width="100%">
+              {' '}
+              <HStack>
+                <NextLink href={profile.twitter} passHref>
+                  <Icon as={FaTwitterSquare} boxSize={30} color="#f8f8f2" />
+                </NextLink>
+                <NextLink href={profile.github} passHref>
+                  <Icon as={FaGithubSquare} boxSize={30} color="#f8f8f2" />
+                </NextLink>
+              </HStack>
+            </Box>
           </VStack>
         </HStack>
         <Text>{policy}</Text>
