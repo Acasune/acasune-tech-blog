@@ -89,6 +89,7 @@ hr {
   background: var(--color-accent);
   height: 1px;
   border: 0;
+  margin-top: 2rem;
 }
 
 /* Heading */

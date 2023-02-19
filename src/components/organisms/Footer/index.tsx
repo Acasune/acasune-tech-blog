@@ -5,7 +5,7 @@ import { profile, policy } from '@/data/siteMetaData'
 
 const Footer = () => {
   return (
-    <Box>
+    <Box as="footer">
       <VStack>
         <HStack>
           <Box boxSize={80}>
