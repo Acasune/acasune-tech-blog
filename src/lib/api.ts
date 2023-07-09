@@ -10,9 +10,7 @@ type Entry = {
   content: string
 }
 
-const postsDirectory = path.join(
-  '/home/awayatakuma/project/acatechblog/data/posts',
-)
+const postsDirectory = path.join('data/posts')
 
 export function getEntrySlugs() {
   const allDirents = fs.readdirSync(postsDirectory, { withFileTypes: true })
