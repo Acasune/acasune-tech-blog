@@ -1,5 +1,5 @@
-﻿import ErrorPage from 'next/error'
-import { useRouter } from 'next/router'
+﻿import Head from 'next/head'
+import siteMetaData from '@/data/siteMetaData'
 import EntryContainer from '@/src/components/organisms/EntryContainer'
 import Layout from '@/src/components/templates/Layout'
 import { getAllEntries, getEntryBySlug } from '@/src/lib/api'
@@ -10,15 +10,30 @@ type EntryPageProps = {
 }
 
 const EntryPage = ({ entry }: EntryPageProps) => {
-  const router = useRouter()
-  if (!router.isFallback && !entry?.slug) {
-    return <ErrorPage statusCode={404} />
-  }
+  // const router = useRouter()
+  // if (!router.isFallback && !entry?.slug) {
+  //   return <ErrorPage statusCode={404} />
+  // }
 
   return (
-    <Layout>
-      <EntryContainer entry={entry} />
-    </Layout>
+    <>
+      <Head>
+        <title>{siteMetaData.title}</title>
+        <meta name="description" content={siteMetaData.description} />
+        <meta property="og:site_name" content={siteMetaData.title} />
+        <meta property="og:title" content={siteMetaData.title} />
+        <meta property="og:description" content={siteMetaData.description} />
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:image"
+          content="https://localhost:3000/acasune.png"
+        />
+        <meta property="og:locale" content="ja_JP" />
+      </Head>
+      <Layout>
+        <EntryContainer entry={entry} />
+      </Layout>
+    </>
   )
 }
 

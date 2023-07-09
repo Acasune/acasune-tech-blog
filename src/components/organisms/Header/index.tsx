@@ -4,9 +4,14 @@ import Link from 'next/link'
 const Header = () => {
   return (
     <Box as="header">
-      <Heading cursor="pointer" color="#bc3f3c" ml={30}>
-        <Link href="/">Acasune Tech Blog</Link>
-      </Heading>
+      <div>
+        <Link href="/" style={{ textDecoration: 'none' }}>
+          {' '}
+          <Heading color="#bc3f3c" as="h1" fontSize="2xl">
+            Acasune Tech Blog
+          </Heading>
+        </Link>
+      </div>
     </Box>
   )
 }
